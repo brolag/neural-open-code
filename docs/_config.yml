@@ -4,7 +4,7 @@
 title: Neural OpenCode Plugin
 description: A sophisticated, self-improving agentic system for OpenCode implementing the Agent Expert Pattern
 url: "https://brolag.github.io"
-baseurl: "/neural-open-code-plugin"
+baseurl: "/neural-open-code"
 
 # Author
 author:
@@ -39,7 +39,7 @@ twitter:
 social:
   name: Neural OpenCode Plugin
   links:
-    - https://github.com/brolag/neural-open-code-plugin
+    - https://github.com/brolag/neural-open-code
 
 # Google Analytics (optional - add your tracking ID)
 # google_analytics: UA-XXXXXXXX-X

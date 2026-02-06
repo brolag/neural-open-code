@@ -1,8 +1,8 @@
 #!/bin/bash
 # Status Line v2 - Adds: last prompt with emoji indicator
-# Usage: Add to .opencode/settings.json: "statusLine": "bash ~/Sites/neural-open-code-plugin/status-lines/v2.sh"
+# Usage: Add to .opencode/settings.json: "statusLine": "bash ~/Sites/neural-open-code/status-lines/v2.sh"
 
-PLUGIN_ROOT="${OPENCODE_PLUGIN_ROOT:-$HOME/Sites/neural-open-code-plugin}"
+PLUGIN_ROOT="${OPENCODE_PLUGIN_ROOT:-$HOME/Sites/neural-open-code}"
 DATA_DIR="$PWD/.opencode/data"
 SESSION_FILE="$DATA_DIR/current-session.json"
 

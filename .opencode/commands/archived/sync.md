@@ -50,7 +50,7 @@ Parse `$ARGUMENTS` to determine what to sync:
 Run the sync script:
 
 ```bash
-bash ~/Sites/neural-open-code-plugin/scripts/sync-plugin.sh $ARGUMENTS
+bash ~/Sites/neural-open-code/scripts/sync-plugin.sh $ARGUMENTS
 ```
 
 ### Step 3: Report Results
@@ -106,7 +106,7 @@ Show what was synced:
 
 **Hooks not working?**
 - Check ~/.config/opencode/settings.json has correct paths
-- Ensure plugin path exists: ~/Sites/neural-open-code-plugin
+- Ensure plugin path exists: ~/Sites/neural-open-code
 
 **Learnings not loading?**
 - Run `bash .opencode/scripts/index-learnings.sh` to rebuild index

@@ -13,11 +13,11 @@ Get Neural OpenCode running on your machine.
 ## Option A: One-Line Install (Recommended)
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/brolag/neural-open-code-plugin/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/brolag/neural-open-code/main/install.sh | bash
 ```
 
 This will:
-1. Clone the repository to `~/Sites/neural-open-code-plugin`
+1. Clone the repository to `~/Sites/neural-open-code`
 2. Configure your shell (`~/.zshrc` or `~/.bashrc`)
 3. Register all commands to `~/.config/opencode/commands/`
 4. Set up hooks (TTS, session tracking)
@@ -34,13 +34,13 @@ Then start the guided tour:
 ### Step 1: Clone the Plugin
 
 ```bash
-git clone https://github.com/brolag/neural-open-code-plugin ~/Sites/neural-open-code-plugin
+git clone https://github.com/brolag/neural-open-code ~/Sites/neural-open-code
 ```
 
 ### Step 2: Run Setup
 
 ```bash
-cd ~/Sites/neural-open-code-plugin
+cd ~/Sites/neural-open-code
 chmod +x scripts/setup-hooks.sh
 ./scripts/setup-hooks.sh
 ```
@@ -54,7 +54,7 @@ This configures:
 Add to your shell profile (`~/.zshrc` or `~/.bashrc`):
 
 ```bash
-export OPENCODE_PLUGIN_ROOT="$HOME/Sites/neural-open-code-plugin"
+export OPENCODE_PLUGIN_ROOT="$HOME/Sites/neural-open-code"
 ```
 
 Then reload:
@@ -66,7 +66,7 @@ source ~/.zshrc  # or source ~/.bashrc
 ### Step 4: Register Commands
 
 ```bash
-cp ~/Sites/neural-open-code-plugin/.opencode/commands/*.md ~/.config/opencode/commands/
+cp ~/Sites/neural-open-code/.opencode/commands/*.md ~/.config/opencode/commands/
 ```
 
 ### Step 5: Install Skills
@@ -78,7 +78,7 @@ cp ~/Sites/neural-open-code-plugin/.opencode/commands/*.md ~/.config/opencode/co
 Or install the recommended bundle:
 
 ```bash
-bash ~/Sites/neural-open-code-plugin/scripts/install-skills.sh
+bash ~/Sites/neural-open-code/scripts/install-skills.sh
 ```
 
 ## Post-Install: Onboarding
@@ -134,4 +134,4 @@ After installation, use these commands to manage the plugin:
 | `/onboard` not found | Copy commands: `cp $OPENCODE_PLUGIN_ROOT/.opencode/commands/*.md ~/.config/opencode/commands/` |
 | Skills not available | Run `/install-skills` to install them |
 
-Need more help? [Open an issue](https://github.com/brolag/neural-open-code-plugin/issues)
+Need more help? [Open an issue](https://github.com/brolag/neural-open-code/issues)

@@ -1,6 +1,6 @@
 #!/bin/bash
 # Status Line v1 - Simple: model, cwd, git branch
-# Usage: Add to .opencode/settings.json: "statusLine": "bash ~/Sites/neural-open-code-plugin/status-lines/v1.sh"
+# Usage: Add to .opencode/settings.json: "statusLine": "bash ~/Sites/neural-open-code/status-lines/v1.sh"
 
 # Get model from env or default
 MODEL="${OPENCODE_MODEL:-opus}"

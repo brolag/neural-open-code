@@ -3,22 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neural OpenCode - AI That Learns & Evolves</title>
-    <meta name="description" content="Transform OpenCode into a self-improving AI assistant that learns from every interaction and evolves with your workflow.">
+    <title>Neural Open Code - AI That Learns & Evolves</title>
+    <meta name="description" content="Transform Codex and Gemini into self-improving AI assistants that learn from every interaction and evolve with your workflow.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&family=Share+Tech+Mono&display=swap" rel="stylesheet">
     <style>
         :root {
-            --matrix-green: #00ff41;
-            --matrix-green-dark: #008f11;
-            --matrix-green-glow: #00ff41;
-            --matrix-bg: #0d0208;
+            --matrix-green: #ffffff;
+            --matrix-green-dark: #888888;
+            --matrix-green-glow: #ffffff;
+            --matrix-bg: #080808;
             --matrix-bg-light: #1a1a1a;
-            --terminal-border: #003b00;
-            --text-dim: #00aa00;
-            --text-bright: #00ff41;
-            --scanline: rgba(0, 255, 65, 0.03);
+            --terminal-border: #333333;
+            --text-dim: #aaaaaa;
+            --text-bright: #ffffff;
+            --scanline: rgba(255, 255, 255, 0.03);
         }
 
         * {
@@ -83,7 +83,7 @@
             justify-content: space-between;
             align-items: center;
             z-index: 100;
-            background: rgba(13, 2, 8, 0.95);
+            background: rgba(8, 8, 8, 0.95);
             border-bottom: 1px solid var(--terminal-border);
         }
 
@@ -251,7 +251,7 @@
             width: 100%;
             max-width: 800px;
             text-align: left;
-            box-shadow: 0 0 40px rgba(0, 255, 65, 0.1);
+            box-shadow: 0 0 40px rgba(255, 255, 255, 0.1);
         }
 
         .terminal-header {
@@ -259,7 +259,7 @@
             align-items: center;
             gap: 0.5rem;
             padding: 0.75rem 1rem;
-            background: rgba(0, 60, 0, 0.3);
+            background: rgba(50, 50, 50, 0.3);
             border-bottom: 1px solid var(--terminal-border);
         }
 
@@ -365,7 +365,7 @@
         }
 
         .feature-card {
-            background: rgba(0, 60, 0, 0.1);
+            background: rgba(50, 50, 50, 0.1);
             border: 1px solid var(--terminal-border);
             padding: 1.5rem;
             transition: all 0.3s;
@@ -373,7 +373,7 @@
 
         .feature-card:hover {
             border-color: var(--matrix-green);
-            box-shadow: 0 0 20px rgba(0, 255, 65, 0.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
         }
 
         .feature-card h3 {
@@ -398,7 +398,7 @@
 
         /* Commands Section */
         .commands-section {
-            background: rgba(0, 60, 0, 0.05);
+            background: rgba(50, 50, 50, 0.05);
             border-top: 1px solid var(--terminal-border);
             border-bottom: 1px solid var(--terminal-border);
         }
@@ -488,7 +488,7 @@
             justify-content: space-between;
             align-items: center;
             padding: 0.5rem 1rem;
-            background: rgba(0, 60, 0, 0.2);
+            background: rgba(50, 50, 50, 0.2);
             border-bottom: 1px solid var(--terminal-border);
             font-size: 0.75rem;
             color: var(--text-dim);
@@ -560,6 +560,56 @@
             text-decoration: underline;
         }
 
+        /* Footer cross-links */
+        .footer-crosslinks {
+            max-width: 480px;
+            margin: 0 auto 1.5rem;
+            text-align: left;
+            font-size: 0.8rem;
+        }
+
+        .footer-crosslinks-title {
+            color: var(--text-dim);
+            margin-bottom: 0.5rem;
+            letter-spacing: 1px;
+        }
+
+        .footer-crosslinks-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .footer-crosslinks-list li {
+            margin-bottom: 0.25rem;
+            display: flex;
+            align-items: baseline;
+            gap: 0;
+        }
+
+        .footer-crosslinks-list .crosslink-prompt {
+            color: var(--text-dim);
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .footer-crosslinks-list a {
+            color: var(--matrix-green);
+            text-decoration: none;
+            transition: all 0.3s;
+            flex-shrink: 0;
+        }
+
+        .footer-crosslinks-list a:hover {
+            text-decoration: none;
+            text-shadow: 0 0 8px var(--matrix-green), 0 0 16px var(--matrix-green-dark);
+        }
+
+        .footer-crosslinks-list .crosslink-desc {
+            color: var(--text-dim);
+            margin-left: 0.75rem;
+            opacity: 0.7;
+        }
+
         /* Version badge */
         .version-badge {
             position: fixed;
@@ -579,7 +629,7 @@
             align-items: center;
             padding: 0.75rem 1.5rem;
             border-top: 1px solid var(--terminal-border);
-            background: rgba(0, 30, 0, 0.3);
+            background: rgba(30, 30, 30, 0.3);
         }
 
         .terminal-input {
@@ -595,7 +645,7 @@
         }
 
         .terminal-input::placeholder {
-            color: #004400;
+            color: #333333;
         }
 
         .terminal-body {
@@ -656,6 +706,8 @@
             h1 { font-size: 1.8rem; }
             .terminal-body { font-size: 0.75rem; }
             .terminal-input { font-size: 0.75rem; }
+            .footer-crosslinks { text-align: center; }
+            .footer-crosslinks-list li { justify-content: center; }
         }
 
         /* Scrollbar */
@@ -683,15 +735,15 @@
     <nav>
         <div class="logo">
             <span class="logo-icon">></span>
-            <span class="glow-subtle">neural_opencode</span>
+            <span class="glow-subtle">neural_open_code</span>
         </div>
         <ul class="nav-links">
             <li><a href="#features">features</a></li>
             <li><a href="#commands">commands</a></li>
             <li><a href="#install">install</a></li>
-            <li><a href="https://github.com/brolag/neural-open-code-plugin">github</a></li>
+            <li><a href="https://github.com/brolag/neural-open-code">github</a></li>
         </ul>
-        <a href="https://github.com/brolag/neural-open-code-plugin" class="btn btn-star">
+        <a href="https://github.com/brolag/neural-open-code" class="btn btn-star">
                 <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor">
                     <path d="M12 .587l3.668 7.568 8.332 1.151-6.064 5.828 1.48 8.279-7.416-3.967-7.417 3.967 1.481-8.279-6.064-5.828 8.332-1.151z"/>
                 </svg>
@@ -704,12 +756,12 @@
             <span class="dot"></span>
             OPEN_SOURCE // MIT_LICENSE
         </div>
-        <h1>OPENCODE THAT<br><span class="highlight glow">LEARNS & EVOLVES</span></h1>
+        <h1>OPEN SOURCE AI THAT<br><span class="highlight glow">LEARNS & EVOLVES</span></h1>
         <p class="hero-subtitle">
-            > Transform your OpenCode into a self-improving AI assistant that remembers context, learns from every interaction, and evolves with your workflow_
+            > Transform Codex and Gemini into self-improving AI assistants that remember context, learn from every interaction, and evolve with your workflow_
         </p>
         <div class="hero-cta">
-            <a href="https://github.com/brolag/neural-open-code-plugin" class="btn">
+            <a href="https://github.com/brolag/neural-open-code" class="btn">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
                 </svg>
@@ -723,26 +775,26 @@
                 <span class="terminal-dot red"></span>
                 <span class="terminal-dot yellow"></span>
                 <span class="terminal-dot green"></span>
-                <span class="terminal-title">neural_opencode v1.5.0 — click to interact</span>
+                <span class="terminal-title">neural_open_code v1.5.0 — click to interact</span>
             </div>
             <div class="terminal-body" id="terminal-output">
                 <div class="terminal-line">
-                    <span class="prompt">$</span> <span class="command">opencode</span>
+                    <span class="prompt">$</span> <span class="command">codex</span>
                 </div>
                 <div class="terminal-line">
-                    <span class="prompt">$</span> <span class="command">curl -fsSL https://raw.githubusercontent.com/brolag/neural-open-code-plugin/main/install.sh | bash</span>
+                    <span class="prompt">$</span> <span class="command">curl -fsSL https://raw.githubusercontent.com/brolag/neural-open-code/main/install.sh | bash</span>
                 </div>
                 <div class="terminal-line">
-                    <span class="output">[INIT] Neural OpenCode v1.5.0</span>
+                    <span class="output">[INIT] Neural Open Code v1.5.0</span>
                 </div>
                 <div class="terminal-line">
-                    <span class="success">[OK]</span> <span class="output">Plugin installed: 10+ agents, 20+ skills</span>
+                    <span class="success">[OK]</span> <span class="output">Installed: 10+ agents, 20+ skills</span>
                 </div>
                 <div class="terminal-line">
                     <span class="success">[OK]</span> <span class="output">Commands registered: 30+ slash commands</span>
                 </div>
                 <div class="terminal-line">
-                    <span class="success">[OK]</span> <span class="output">Multi-AI ready: Claude + Codex + Gemini</span>
+                    <span class="success">[OK]</span> <span class="output">Multi-AI ready: Codex + Gemini</span>
                 </div>
                 <div class="terminal-line">
                     <span class="dim">---</span>
@@ -761,7 +813,7 @@
     <section id="features" class="section">
         <div class="section-header">
             <h2>FEATURES</h2>
-            <p>> Superpowers for OpenCode that learn and evolve with you_</p>
+            <p>> Superpowers for open source AI that learn and evolve with you_</p>
         </div>
 
         <div class="features-grid">
@@ -772,7 +824,7 @@
 
             <div class="feature-card">
                 <h3>PERSISTENT_MEMORY</h3>
-                <p>Facts, events, and session logs persist across conversations. OpenCode remembers what matters to you.</p>
+                <p>Facts, events, and session logs persist across conversations. Your AI remembers what matters to you.</p>
             </div>
 
             <div class="feature-card">
@@ -782,7 +834,7 @@
 
             <div class="feature-card">
                 <h3>MULTI_AI</h3>
-                <p>Route tasks to Claude, Codex, or Gemini based on strengths. Get the best AI for each job.</p>
+                <p>Route tasks to Codex or Gemini based on strengths. Open source AI for every job.</p>
             </div>
 
             <div class="feature-card">
@@ -853,7 +905,7 @@
                     <span>1. Install everything</span>
                     <button class="copy-btn" onclick="copyCode(this)">COPY</button>
                 </div>
-                <pre><code><span class="prompt">$</span> curl -fsSL https://raw.githubusercontent.com/brolag/neural-open-code-plugin/main/install.sh | bash</code></pre>
+                <pre><code><span class="prompt">$</span> curl -fsSL https://raw.githubusercontent.com/brolag/neural-open-code/main/install.sh | bash</code></pre>
             </div>
 
             <div class="code-block">
@@ -871,7 +923,7 @@
     <section class="cta-section">
         <h2 class="glow-subtle">> READY TO EVOLVE?</h2>
         <p>Join developers building with AI that learns and improves over time.</p>
-        <a href="https://github.com/brolag/neural-open-code-plugin" class="btn">
+        <a href="https://github.com/brolag/neural-open-code" class="btn">
             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                 <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
             </svg>
@@ -880,11 +932,31 @@
     </section>
 
     <footer>
+        <div class="footer-crosslinks">
+            <div class="footer-crosslinks-title">-- more from indie mind --</div>
+            <ul class="footer-crosslinks-list">
+                <li>
+                    <span class="crosslink-prompt">&gt;</span>
+                    <a href="https://brolag.github.io/dendrite/" target="_blank" rel="noopener noreferrer">dendrite</a>
+                    <span class="crosslink-desc">Opinionated TUI stack for agentic coding</span>
+                </li>
+                <li>
+                    <span class="crosslink-prompt">&gt;</span>
+                    <a href="https://brolag.github.io/neural-claude-code/" target="_blank" rel="noopener noreferrer">neural-claude-code</a>
+                    <span class="crosslink-desc">Neural system for Claude Code</span>
+                </li>
+                <li>
+                    <span class="crosslink-prompt">&gt;</span>
+                    <a href="https://www.indie-mind.com/" target="_blank" rel="noopener noreferrer">indie-mind.com</a>
+                    <span class="crosslink-desc">AI Adoption Consulting</span>
+                </li>
+            </ul>
+        </div>
         <p>
             Built by <a href="https://github.com/brolag">@brolag</a> //
-Powered by <a href="https://opencode.ai">OpenCode</a> //
-            <a href="https://github.com/brolag/neural-open-code-plugin/blob/main/README.md">DOCS</a> //
-            <a href="https://github.com/brolag/neural-open-code-plugin/blob/main/LICENSE">MIT</a>
+            Powered by Open Source AI //
+            <a href="https://github.com/brolag/neural-open-code/blob/main/README.md">DOCS</a> //
+            <a href="https://github.com/brolag/neural-open-code/blob/main/LICENSE">MIT</a>
         </p>
     </footer>
 
@@ -902,16 +974,16 @@ Powered by <a href="https://opencode.ai">OpenCode</a> //
         resize();
         window.addEventListener('resize', resize);
 
-        const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+        const chars = 'アイウエオカキクケコサシスセソタチツテトナニヌネノハヒフヘホマミムメモヤユヨラリルレロワヲン0123456789NEURAL';
         const fontSize = 14;
         const columns = Math.floor(canvas.width / fontSize);
         const drops = Array(columns).fill(1);
 
         function drawMatrix() {
-            ctx.fillStyle = 'rgba(13, 2, 8, 0.05)';
+            ctx.fillStyle = 'rgba(8, 8, 8, 0.05)';
             ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-            ctx.fillStyle = '#00ff41';
+            ctx.fillStyle = '#ffffff';
             ctx.font = fontSize + 'px monospace';
 
             for (let i = 0; i < drops.length; i++) {
@@ -1014,7 +1086,7 @@ Powered by <a href="https://opencode.ai">OpenCode</a> //
             help: () => {
                 addLine('Available commands:', 'success');
                 addLine('  help     - Show this menu');
-                addLine('  about    - About Neural OpenCode');
+                addLine('  about    - About Neural Open Code');
                 addLine('  install  - Show install command');
                 addLine('  skills   - List available skills');
                 addLine('  agents   - List available agents');
@@ -1030,17 +1102,17 @@ Powered by <a href="https://opencode.ai">OpenCode</a> //
             },
 
             about: () => {
-                addLine('[NEURAL CLAUDE CODE]', 'success');
+                addLine('[NEURAL OPEN CODE]', 'success');
                 addLine('Self-improving AI that learns from you.');
-                addLine('Built with OpenCode.');
+                addLine('Built with Codex and Gemini.');
                 addLine('');
-                addLine('> github.com/brolag/neural-open-code-plugin');
+                addLine('> github.com/brolag/neural-open-code');
             },
 
             install: () => {
                 addLine('[ONE COMMAND INSTALL]', 'success');
                 addLine('');
-                addLine('curl -fsSL https://raw.githubusercontent.com/brolag/neural-open-code-plugin/main/install.sh | bash', 'command');
+                addLine('curl -fsSL https://raw.githubusercontent.com/brolag/neural-open-code/main/install.sh | bash', 'command');
                 addLine('');
                 addLine('Then run: /onboard', 'output');
             },
@@ -1123,7 +1195,7 @@ Powered by <a href="https://opencode.ai">OpenCode</a> //
             repo: () => {
                 addLine('[OPENING GITHUB...]', 'success');
                 setTimeout(() => {
-                    window.open('https://github.com/brolag/neural-open-code-plugin', '_blank');
+                    window.open('https://github.com/brolag/neural-open-code', '_blank');
                 }, 500);
             },
 
@@ -1136,7 +1208,7 @@ Powered by <a href="https://opencode.ai">OpenCode</a> //
                 addLine('[THANK YOU] Stars help others discover this project!', 'success');
                 addLine('Opening GitHub...', 'output');
                 setTimeout(() => {
-                    window.open('https://github.com/brolag/neural-open-code-plugin', '_blank');
+                    window.open('https://github.com/brolag/neural-open-code', '_blank');
                 }, 1000);
             },
 
@@ -1152,7 +1224,7 @@ Powered by <a href="https://opencode.ai">OpenCode</a> //
             },
 
             pwd: () => {
-                addLine('/neural-open-code-plugin', 'output');
+                addLine('/neural-open-code', 'output');
             },
 
             vim: () => {
@@ -1176,7 +1248,7 @@ Powered by <a href="https://opencode.ai">OpenCode</a> //
             },
 
             uptime: () => {
-                addLine('Neural OpenCode: Always learning, never sleeping.', 'output');
+                addLine('Neural Open Code: Always learning, never sleeping.', 'output');
             }
         };
 

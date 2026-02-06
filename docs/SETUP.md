@@ -60,13 +60,13 @@ jq --version
 ### Step 1: Clone the Plugin
 
 ```bash
-git clone https://github.com/brolag/neural-open-code-plugin ~/Sites/neural-open-code-plugin
+git clone https://github.com/brolag/neural-open-code ~/Sites/neural-open-code
 ```
 
 ### Step 2: Run the Installer
 
 ```bash
-cd ~/Sites/neural-open-code-plugin
+cd ~/Sites/neural-open-code
 ./install.sh
 ```
 
@@ -87,7 +87,7 @@ Run the setup script:
 
 ```bash
 # Set the plugin location (adjust path if different)
-export OPENCODE_PLUGIN_ROOT="$HOME/Sites/neural-open-code-plugin"
+export OPENCODE_PLUGIN_ROOT="$HOME/Sites/neural-open-code"
 
 # Run setup
 bash "$OPENCODE_PLUGIN_ROOT/scripts/setup-hooks.sh"
@@ -111,7 +111,7 @@ Edit `~/.config/opencode/settings.json` and add the hooks section:
         "hooks": [
           {
             "type": "command",
-            "command": "bash /path/to/neural-open-code-plugin/scripts/hooks/stop-tts.sh",
+            "command": "bash /path/to/neural-open-code/scripts/hooks/stop-tts.sh",
             "timeout": 15000
           }
         ]
@@ -121,7 +121,7 @@ Edit `~/.config/opencode/settings.json` and add the hooks section:
 }
 ```
 
-Replace `/path/to/neural-open-code-plugin` with your actual plugin path.
+Replace `/path/to/neural-open-code` with your actual plugin path.
 
 ### Verify Hook Setup
 

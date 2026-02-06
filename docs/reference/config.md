@@ -9,7 +9,7 @@ All configuration options.
 ### Required
 
 ```bash
-export OPENCODE_PLUGIN_ROOT="$HOME/Sites/neural-open-code-plugin"
+export OPENCODE_PLUGIN_ROOT="$HOME/Sites/neural-open-code"
 ```
 
 ### Optional

@@ -6,7 +6,7 @@
 set -e
 
 SETTINGS_FILE="$HOME/.config/opencode/settings.json"
-PLUGIN_ROOT="${OPENCODE_PLUGIN_ROOT:-$HOME/Sites/neural-open-code-plugin}"
+PLUGIN_ROOT="${OPENCODE_PLUGIN_ROOT:-$HOME/Sites/neural-open-code}"
 
 echo "🔧 Neural OpenCode - Setup"
 echo "=============================="
@@ -90,8 +90,8 @@ if [ ! -d "$PLUGIN_ROOT" ]; then
   echo "❌ Plugin not found at: $PLUGIN_ROOT"
   echo ""
   echo "Set OPENCODE_PLUGIN_ROOT or clone the plugin first:"
-  echo "  git clone https://github.com/brolag/neural-open-code-plugin.git"
-  echo "  export OPENCODE_PLUGIN_ROOT=\"\$HOME/Sites/neural-open-code-plugin\""
+  echo "  git clone https://github.com/brolag/neural-open-code.git"
+  echo "  export OPENCODE_PLUGIN_ROOT=\"\$HOME/Sites/neural-open-code\""
   exit 1
 fi
 echo "✅ Plugin found at: $PLUGIN_ROOT"

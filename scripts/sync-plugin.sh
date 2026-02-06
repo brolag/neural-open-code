@@ -4,7 +4,7 @@
 
 set -e
 
-PLUGIN_ROOT="${PLUGIN_ROOT:-$HOME/Sites/neural-open-code-plugin}"
+PLUGIN_ROOT="${PLUGIN_ROOT:-$HOME/Sites/neural-open-code}"
 GLOBAL_SETTINGS="$HOME/.config/opencode/settings.json"
 VERSION=$(jq -r '.version' "$PLUGIN_ROOT/.opencode/plugin.json" 2>/dev/null || echo "unknown")
 

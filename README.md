@@ -11,7 +11,7 @@
 </p>
 
 <p align="center">
-  <code>curl -fsSL https://raw.githubusercontent.com/brolag/neural-open-code-plugin/main/install.sh | bash</code>
+  <code>curl -fsSL https://raw.githubusercontent.com/brolag/neural-open-code/main/install.sh | bash</code>
 </p>
 
 ---
@@ -36,7 +36,7 @@ Neural:      Execute -> Learn  -> Improve always
 **One command to install:**
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/brolag/neural-open-code-plugin/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/brolag/neural-open-code/main/install.sh | bash
 ```
 
 The installer will:
@@ -57,13 +57,13 @@ The installer will:
 
 ```bash
 # 1. Clone
-git clone https://github.com/brolag/neural-open-code-plugin ~/Sites/neural-open-code-plugin
+git clone https://github.com/brolag/neural-open-code ~/Sites/neural-open-code
 
 # 2. Setup
-cd ~/Sites/neural-open-code-plugin && ./scripts/setup-hooks.sh
+cd ~/Sites/neural-open-code && ./scripts/setup-hooks.sh
 
 # 3. Add to shell
-echo 'export OPENCODE_PLUGIN_ROOT="$HOME/Sites/neural-open-code-plugin"' >> ~/.zshrc
+echo 'export OPENCODE_PLUGIN_ROOT="$HOME/Sites/neural-open-code"' >> ~/.zshrc
 source ~/.zshrc
 
 # 4. Guided tour
@@ -159,7 +159,7 @@ source ~/.zshrc
 
 ## Contributing
 
-Contributions welcome! [Open an issue](https://github.com/brolag/neural-open-code-plugin/issues) or submit a PR.
+Contributions welcome! [Open an issue](https://github.com/brolag/neural-open-code/issues) or submit a PR.
 
 ---
 

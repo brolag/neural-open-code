@@ -3,7 +3,7 @@
 ## The Command
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/brolag/neural-open-code-plugin/main/install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/brolag/neural-open-code/main/install.sh | bash
 ```
 
 ## What It Does
@@ -16,7 +16,7 @@ The installer automatically:
    - Detects your shell (zsh/bash)
 
 2. **Installs Plugin**
-   - Clones repository to `~/Sites/neural-open-code-plugin`
+   - Clones repository to `~/Sites/neural-open-code`
    - Or updates if already installed
    - Respects `$OPENCODE_PLUGIN_ROOT` if set
 
@@ -42,7 +42,7 @@ The installer automatically:
 ║  v1.4.0                                                ║
 ╚════════════════════════════════════════════════════════╝
 
-→ Installation directory: ~/Sites/neural-open-code-plugin
+→ Installation directory: ~/Sites/neural-open-code
 
 → Checking prerequisites...
 ✓ Prerequisites met
@@ -184,15 +184,15 @@ If you prefer manual control:
 
 ```bash
 # 1. Clone
-git clone https://github.com/brolag/neural-open-code-plugin \
-  ~/Sites/neural-open-code-plugin
+git clone https://github.com/brolag/neural-open-code \
+  ~/Sites/neural-open-code
 
 # 2. Configure shell
-echo 'export OPENCODE_PLUGIN_ROOT="$HOME/Sites/neural-open-code-plugin"' >> ~/.zshrc
+echo 'export OPENCODE_PLUGIN_ROOT="$HOME/Sites/neural-open-code"' >> ~/.zshrc
 source ~/.zshrc
 
 # 3. Setup hooks
-cd ~/Sites/neural-open-code-plugin
+cd ~/Sites/neural-open-code
 ./scripts/setup-hooks.sh
 
 # 4. Install skills
@@ -204,7 +204,7 @@ cd ~/Sites/neural-open-code-plugin
 The installer only modifies:
 
 1. **File System**
-   - Creates `~/Sites/neural-open-code-plugin/` (or custom path)
+   - Creates `~/Sites/neural-open-code/` (or custom path)
    - Optionally creates `~/.config/opencode/skills/` for global skills
 
 2. **Shell Config**
@@ -223,7 +223,7 @@ The installer only modifies:
 
 ```bash
 # 1. Remove directory
-rm -rf ~/Sites/neural-open-code-plugin
+rm -rf ~/Sites/neural-open-code
 
 # 2. Remove from shell config
 # Edit ~/.zshrc and remove the OPENCODE_PLUGIN_ROOT line
@@ -239,13 +239,13 @@ The install script:
 - No `sudo` required
 - Only modifies files in your home directory
 - Open source - you can inspect it first:
-  https://github.com/brolag/neural-open-code-plugin/blob/main/install.sh
+  https://github.com/brolag/neural-open-code/blob/main/install.sh
 
 ## Support
 
-- **Issues**: https://github.com/brolag/neural-open-code-plugin/issues
-- **Discussions**: https://github.com/brolag/neural-open-code-plugin/discussions
-- **Documentation**: https://github.com/brolag/neural-open-code-plugin
+- **Issues**: https://github.com/brolag/neural-open-code/issues
+- **Discussions**: https://github.com/brolag/neural-open-code/discussions
+- **Documentation**: https://github.com/brolag/neural-open-code
 
 ---
 

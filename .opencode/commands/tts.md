@@ -29,7 +29,7 @@ When this command is invoked:
 bash "$OPENCODE_PLUGIN_ROOT/scripts/tts-toggle.sh" <args>
 ```
 
-Where `$OPENCODE_PLUGIN_ROOT` defaults to `~/Sites/neural-open-code-plugin`.
+Where `$OPENCODE_PLUGIN_ROOT` defaults to `~/Sites/neural-open-code`.
 
 2. Read and display the current config:
 

@@ -1,8 +1,8 @@
 #!/bin/bash
 # Status Line v3 - Full: model, last prompt, agent name, trailing prompts, git
-# Usage: Add to .opencode/settings.json: "statusLine": "bash ~/Sites/neural-open-code-plugin/status-lines/v3.sh"
+# Usage: Add to .opencode/settings.json: "statusLine": "bash ~/Sites/neural-open-code/status-lines/v3.sh"
 
-PLUGIN_ROOT="${OPENCODE_PLUGIN_ROOT:-$HOME/Sites/neural-open-code-plugin}"
+PLUGIN_ROOT="${OPENCODE_PLUGIN_ROOT:-$HOME/Sites/neural-open-code}"
 DATA_DIR="$PWD/.opencode/data"
 SESSION_FILE="$DATA_DIR/current-session.json"
 

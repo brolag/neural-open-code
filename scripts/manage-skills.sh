@@ -17,7 +17,7 @@ RESET='\033[0m'
 # Paths
 PROJECT_SKILLS="./.opencode/skills"
 GLOBAL_SKILLS="$HOME/.config/opencode/skills"
-PLUGIN_ROOT="${OPENCODE_PLUGIN_ROOT:-$HOME/Sites/neural-open-code-plugin}"
+PLUGIN_ROOT="${OPENCODE_PLUGIN_ROOT:-$HOME/Sites/neural-open-code}"
 
 # ============================================================================
 # UTILITY FUNCTIONS

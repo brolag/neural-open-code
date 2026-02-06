@@ -5,7 +5,7 @@
 
 set -e
 
-PLUGIN_ROOT="${OPENCODE_PLUGIN_ROOT:-$HOME/Sites/neural-open-code-plugin}"
+PLUGIN_ROOT="${OPENCODE_PLUGIN_ROOT:-$HOME/Sites/neural-open-code}"
 DATA_DIR="$PWD/.opencode/data"
 SESSION_FILE="$DATA_DIR/current-session.json"
 CONFIG_FILE="$PWD/.opencode/settings.local.json"
