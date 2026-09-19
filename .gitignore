@@ -1,0 +1,6 @@
+__pycache__/
+.pytest_cache/
+exercise-evidence/
+.opencode/data/
+.opencode/node_modules/
+plans/
