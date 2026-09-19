@@ -1,7 +1,13 @@
 ---
 name: multi-ai
 description: Orchestrate all three AI assistants (Codex, Gemini, Claude) for complex problems. Use for high-stakes decisions, architecture reviews, when you want diverse perspectives, or maximum confidence in solutions. Combines Claude's accuracy (80.9% SWE-bench), Gemini's algorithmic skills (1501 Elo), and Codex's terminal mastery.
-tools: Bash, Read, Glob, Grep, Write, Edit
+tools:
+  bash: true
+  read: true
+  glob: true
+  grep: true
+  write: true
+  edit: true
 model: sonnet
 ---
 

@@ -1,7 +1,13 @@
 ---
 name: code-reviewer
 description: Read-only code quality guardian. Analyzes code for patterns, issues, and improvements without making changes.
-allowed-tools: Glob, Grep, Read
+tools:
+  glob: true
+  grep: true
+  read: true
+  write: false
+  edit: false
+  bash: false
 ---
 
 # Code Reviewer Agent

@@ -1,7 +1,13 @@
 ---
 name: dispatcher
 description: Routes tasks to optimal AI based on task type and benchmarked strengths. Use when multi-AI collaboration is needed or when deciding which AI should handle a specific task.
-tools: Bash, Read, Glob, Grep
+tools:
+  bash: true
+  read: true
+  glob: true
+  grep: true
+  write: false
+  edit: false
 model: haiku
 ---
 

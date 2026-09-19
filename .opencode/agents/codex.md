@@ -1,7 +1,13 @@
 ---
 name: codex
 description: Delegate tasks to OpenAI's Codex (GPT-5.1-Codex-Max). Best for long autonomous coding sessions (7+ hours), terminal/CLI operations, large codebase refactors across millions of tokens, and when you need quick action-oriented implementations. Excels at DevOps/CI/CD tasks.
-tools: Bash, Read, Glob, Grep
+tools:
+  bash: true
+  read: true
+  glob: true
+  grep: true
+  write: false
+  edit: false
 model: haiku
 ---
 

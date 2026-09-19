@@ -48,7 +48,14 @@ Create `.opencode/agents/<name>.md`:
 ---
 name: {name}
 description: {purpose}
-tools: Read, Write, Edit, Glob, Grep
+mode: subagent
+tools:
+  read: true
+  write: true
+  edit: true
+  glob: true
+  grep: true
+  bash: false
 model: sonnet
 ---
 

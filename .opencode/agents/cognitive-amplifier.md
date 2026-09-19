@@ -1,7 +1,14 @@
 ---
 name: cognitive-amplifier
 description: Enhanced thinking and decision-making specialist. Use when facing complex problems, need to overcome cognitive biases, want multi-perspective analysis, or need help with strategic decisions. Proactively use for any non-trivial problem solving.
-tools: Read, Glob, Grep, WebSearch
+tools:
+  read: true
+  glob: true
+  grep: true
+  websearch: true
+  write: false
+  edit: false
+  bash: false
 model: sonnet
 ---
 

@@ -20,8 +20,6 @@ Built-in specialized agents.
 | Agent | Purpose | Best For |
 |-------|---------|----------|
 | `cognitive-amplifier` | Enhanced decision-making | Complex problems, bias detection |
-| `insight-synthesizer` | Cross-domain patterns | Breakthrough ideas |
-| `framework-architect` | Transform content | Learning to frameworks |
 
 ---
 
@@ -65,7 +63,6 @@ Built-in specialized agents.
 
 | Agent | Purpose | Best For |
 |-------|---------|----------|
-| `meta-architect` | Create agents | Dynamic agent generation |
 | `optimizer` | System improvement | Performance analysis |
 
 ---

@@ -1,7 +1,13 @@
 ---
 name: optimizer
 description: Analyzes system performance and proposes improvements. Use when running /evolve command, after evaluation results, or when user asks to improve the system. The self-improvement engine.
-tools: Read, Write, Glob, Grep, Bash
+tools:
+  read: true
+  write: true
+  glob: true
+  grep: true
+  bash: true
+  edit: false
 model: sonnet
 ---
 

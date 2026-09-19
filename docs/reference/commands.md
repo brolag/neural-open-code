@@ -65,10 +65,6 @@ Complete list of all slash commands.
 | `/loop "task"` | Unified loop (v3) | `/loop "Fix all errors"` |
 | `/loop "task" --afk` | AFK mode (sandbox) | `/loop "Build API" --afk` |
 | `/loop "task" --once` | Single iteration | `/loop "Quick fix" --once` |
-| `/loop-plan "task"` | Plan before loop | `/loop-plan "Add auth"` |
-| `/loop-start "task"` | Start loop (legacy) | `/loop-start "task" --max 20` |
-| `/loop-status` | Check progress | `/loop-status` |
-| `/loop-cancel` | Stop active loop | `/loop-cancel` |
 
 **Loop Options:**
 - `--max <n>` - Maximum iterations (default: 20)

@@ -1,7 +1,13 @@
 ---
 name: gemini
 description: Delegate tasks to Google's Gemini 3 Pro. Best for algorithmic/competitive coding (1501 Elo - highest), budget-conscious development (generous free tier), multimodal tasks (UI sketches to code), and Google ecosystem integration. Open source (Apache 2.0).
-tools: Bash, Read, Glob, Grep
+tools:
+  bash: true
+  read: true
+  glob: true
+  grep: true
+  write: false
+  edit: false
 model: haiku
 ---
 

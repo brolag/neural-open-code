@@ -7,6 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [Unreleased]
+
+### Fixed
+
+- OpenCode 1.18+ rejects agent `tools` as a comma-separated string (`Expected object | undefined`). Converted all agent frontmatter to `{ tool: boolean }` maps so `oc` can start.
+
+### Removed
+
+- Deleted `.opencode/{agents,commands,skills}/archived/` so leftover Claude-style frontmatter cannot block OpenCode startup.
+
+---
+
 ## [1.9.0] - 2026-02-03
 
 ### Interactive Agentic Coding Course
