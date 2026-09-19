@@ -1,1 +1,14 @@
-theme: null
+title: Neural OpenCode
+description: Five evidence-gated skills for OpenCode 1.18.31
+exclude:
+  - archived
+  - plugins
+  - tests
+  - scripts
+  - node_modules
+  - opencode.json
+  - opencode.example.json
+  - AGENTS.md
+  - ARCHITECTURE.md
+  - CHANGELOG.md
+  - LICENSE

@@ -7,6 +7,53 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
+## [2.0.0] - 2026-09-19
+
+### Breaking cleanup: Neural Codex port for OpenCode 1.18.31
+
+Neural OpenCode is now a lightweight evidence-gated harness, not the 1.9.0
+kitchen sink. Host target is OpenCode **v1.18.31** (there is no OpenCode
+v2.0.8).
+
+### Added
+
+- Five workflow skills with Neural Codex contracts: `/discover`, `/spec`,
+  `/craft`, `/vet`, `/exercise`
+- OpenCode-native plugin at `plugins/neural-open-code/` (`package.json` +
+  `index.js` hooks)
+- Guardrail hooks on `tool.execute.before`, `tool.execute.after`, and
+  `experimental.session.compacting`
+- Focused docs, GitHub Page sources, and contract tests
+- `archived/v1.9.0/` holding the previous product surface as unsupported
+
+### Removed from the supported product path
+
+- Agentic course (`/course`) and lesson pack
+- Neural Squad (`/squad-*`)
+- Neural loops (`/loop` and archived loop commands)
+- TTS / ElevenLabs
+- Multi-AI mesh (`/pv-mesh`, `/ai-collab`, dedicated Codex/Gemini agents)
+- KPI, Compute Advantage, and cost trackers
+- Memory / expertise / remember-recall product
+- Skills manager, onboard tour, and extra command/agent packs
+- Custom `install.sh` / one-liner home-directory installers
+- Output styles, status lines, expertise schemas, and CRAFT templates as
+  first-class surface
+
+Lyft, WordPress, and MCP-dependent features remain deferred.
+
+### Migration
+
+1. Install OpenCode 1.18.31 or later.
+2. Add the two documented keys from `opencode.example.json` to your project.
+3. Stop using archived 1.9.0 commands and skills.
+4. Review `plugins/neural-open-code/hooks/` before trusting a session.
+
+No GitHub release, npm publish, or live Pages deploy is performed by this
+change.
+
+---
+
 ## [1.9.0] - 2026-02-03
 
 ### Interactive Agentic Coding Course

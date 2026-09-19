@@ -1,344 +1,352 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neural OpenCode - Self-Improving AI Development System</title>
-    <meta name="description" content="OpenCode that learns and improves from every interaction. Install with one command, get 20+ skills, multi-AI collaboration, and persistent memory.">
-    <link rel="stylesheet" href="style.css">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Neural OpenCode: five evidence-gated skills for OpenCode 1.18.31.">
+  <title>Neural OpenCode — evidence-gated work</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet">
+  <style>
+    :root {
+      color-scheme: dark;
+      --matrix: #f7f7f7;
+      --matrix-dim: #9ca3af;
+      --matrix-glow: #d1d5db;
+      --bg: #0a0a0a;
+      --surface: rgba(10, 10, 10, .88);
+      --surface-2: rgba(17, 17, 17, .72);
+      --line: #2b2b2b;
+      --text: #f7f7f7;
+      --muted: #9ca3af;
+      --shadow: 0 0 40px rgba(209, 213, 219, .08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--text);
+      background: var(--bg);
+      font: 15px/1.7 "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
+      overflow-x: hidden;
+      isolation: isolate;
+    }
+    a { color: inherit; }
+    code, pre { font-family: inherit; }
+    code { color: var(--matrix-glow); }
+    .wrap { width: min(1120px, calc(100% - 40px)); margin: 0 auto; }
+
+    #matrix-bg {
+      position: fixed;
+      inset: 0;
+      z-index: 0;
+      width: 100%;
+      height: 100%;
+      opacity: .34;
+      pointer-events: none;
+    }
+    .matrix-shade {
+      position: fixed;
+      inset: 0;
+      z-index: 1;
+      pointer-events: none;
+      background: linear-gradient(180deg, rgba(10,10,10,.12), rgba(10,10,10,.56));
+    }
+    .scanlines {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      pointer-events: none;
+      background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(255,255,255,.025) 2px, rgba(255,255,255,.025) 4px);
+    }
+    main, footer { position: relative; z-index: 2; }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid var(--line);
+      background: rgba(10, 10, 10, .93);
+      backdrop-filter: blur(12px);
+    }
+    nav { min-height: 68px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; text-decoration: none; letter-spacing: -.02em; text-transform: lowercase; }
+    .brand-mark { width: 30px; height: 30px; display: grid; place-items: center; border: 1px solid var(--line); color: var(--matrix); box-shadow: 0 0 12px rgba(209,213,219,.08); }
+    .nav-links { display: flex; gap: 22px; color: var(--muted); font-size: 14px; }
+    .nav-links a { text-decoration: none; }
+    .nav-links a::before { content: "> "; opacity: 0; }
+    .nav-links a:hover { color: var(--text); text-shadow: 0 0 10px var(--matrix-glow); }
+    .nav-links a:hover::before { opacity: 1; }
+
+    .hero { min-height: 84vh; display: flex; flex-direction: column; justify-content: center; padding: 112px 0 82px; }
+    .eyebrow { width: fit-content; margin: 0 0 24px; padding: 6px 12px; border: 1px solid var(--line); color: var(--muted); font-size: 12px; font-weight: 600; letter-spacing: .12em; text-transform: uppercase; }
+    .eyebrow::before { content: "● "; color: var(--matrix); text-shadow: 0 0 10px var(--matrix); animation: blink 1.2s steps(2, end) infinite; }
+    h1 { max-width: 950px; margin: 0; font-size: clamp(46px, 8vw, 86px); font-weight: 400; line-height: 1.02; letter-spacing: -.065em; text-transform: uppercase; }
+    h1 span { color: var(--matrix); font-weight: 700; text-shadow: 0 0 5px var(--matrix), 0 0 14px var(--matrix-dim); }
+    .lede { max-width: 760px; margin: 30px 0 0; color: var(--muted); font-size: clamp(17px, 2.2vw, 21px); }
+    .lede::before { content: "> "; color: var(--matrix); }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+    .button { padding: 11px 17px; border: 1px solid var(--matrix); background: transparent; color: var(--matrix); font-weight: 600; text-decoration: none; transition: .2s ease; }
+    .button::before { content: "[ "; }
+    .button::after { content: " ]"; }
+    .button:hover, .button.primary { background: var(--matrix); color: var(--bg); box-shadow: 0 0 20px rgba(209,213,219,.3); }
+    .button.primary:hover { background: transparent; color: var(--matrix); }
+
+    section { padding: 78px 0; border-top: 1px solid var(--line); background: rgba(10,10,10,.46); }
+    section:nth-of-type(even) { background: rgba(17,17,17,.42); }
+    .section-head { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: end; margin-bottom: 34px; }
+    h2 { margin: 0; font-size: clamp(30px, 4.5vw, 48px); font-weight: 400; line-height: 1.1; letter-spacing: -.045em; text-transform: uppercase; }
+    h2::before { content: "## "; color: var(--muted); font-size: .55em; vertical-align: middle; }
+    .section-head p { margin: 0; color: var(--muted); }
+
+    .flow { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; }
+    .gate { position: relative; min-height: 210px; padding: 22px; border: 1px solid var(--line); background: var(--surface-2); transition: .2s ease; }
+    .gate:hover { border-color: var(--matrix-dim); box-shadow: var(--shadow); transform: translateY(-2px); }
+    .gate::after { content: "→"; position: absolute; right: -16px; top: 50%; z-index: 2; width: 22px; color: var(--muted); text-align: center; }
+    .gate:last-child::after { display: none; }
+    .gate small { color: var(--muted); font-weight: 800; letter-spacing: .08em; text-transform: uppercase; }
+    .gate h3 { margin: 34px 0 8px; color: var(--matrix); font-size: 20px; text-shadow: 0 0 8px rgba(209,213,219,.28); }
+    .gate p { margin: 0; color: var(--muted); font-size: 14px; }
+
+    .grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .card { padding: 26px; border: 1px solid var(--line); background: var(--surface-2); transition: .2s ease; }
+    .card:hover { border-color: var(--matrix-dim); box-shadow: var(--shadow); }
+    .card h3 { margin: 0 0 8px; font-size: 20px; }
+    .card h3::before { content: "> "; color: var(--muted); }
+    .card p { margin: 0; color: var(--muted); }
+    .badge { display: inline-flex; margin-bottom: 18px; padding: 5px 9px; border: 1px solid var(--line); color: var(--matrix-glow); background: rgba(255,255,255,.02); font: 700 12px/1.3 inherit; }
+
+    .terminal { overflow: hidden; border: 1px solid var(--line); background: var(--surface); box-shadow: var(--shadow); }
+    .terminal-bar { display: flex; gap: 7px; padding: 14px 16px; border-bottom: 1px solid var(--line); }
+    .dot { width: 9px; height: 9px; border-radius: 50%; background: var(--matrix-dim); box-shadow: 0 0 5px var(--matrix-dim); }
+    .dot:nth-child(1) { background: #6b7280; }
+    .dot:nth-child(3) { background: var(--matrix-glow); }
+    pre { margin: 0; padding: 26px; overflow-x: auto; color: var(--matrix-glow); font-size: 14px; line-height: 1.9; }
+    pre strong { color: var(--matrix); font-weight: 700; text-shadow: 0 0 6px rgba(209,213,219,.4); }
+
+    .structure { display: grid; grid-template-columns: .85fr 1.15fr; gap: 16px; }
+    .principle { display: flex; flex-direction: column; justify-content: space-between; min-height: 320px; padding: 30px; border: 1px solid var(--line); background: var(--surface-2); }
+    .principle blockquote { margin: 0; font-size: clamp(28px, 4vw, 43px); line-height: 1.08; letter-spacing: -.04em; }
+    .principle p { margin: 26px 0 0; color: var(--muted); }
+
+    footer { padding: 44px 0 60px; border-top: 1px solid var(--line); color: var(--muted); background: rgba(10,10,10,.9); }
+    .footer-row { display: flex; justify-content: space-between; gap: 24px; }
+
+    @keyframes blink { 50% { opacity: .25; } }
+
+    @media (max-width: 900px) {
+      .flow { grid-template-columns: 1fr; }
+      .gate { min-height: 0; }
+      .gate::after { content: "↓"; top: auto; right: 50%; bottom: -18px; }
+      .section-head, .structure { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 640px) {
+      .wrap { width: min(100% - 24px, 1120px); }
+      .nav-links a:not(:last-child) { display: none; }
+      .hero { padding: 80px 0 62px; }
+      section { padding: 60px 0; }
+      .grid { grid-template-columns: 1fr; }
+      .install-terminal pre { white-space: pre-wrap; overflow-wrap: anywhere; }
+      .footer-row { flex-direction: column; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .eyebrow::before { animation: none; }
+    }
+  </style>
 </head>
 <body>
-    <div class="grid-background"></div>
+  <canvas id="matrix-bg" aria-hidden="true"></canvas>
+  <div class="matrix-shade" aria-hidden="true"></div>
+  <div class="scanlines" aria-hidden="true"></div>
+  <header>
+    <nav class="wrap" aria-label="Primary navigation">
+      <a class="brand" href="#top"><span class="brand-mark">N</span> Neural OpenCode</a>
+      <div class="nav-links">
+        <a href="#workflow">Workflow</a>
+        <a href="#hooks">Hooks</a>
+        <a href="#install">Install</a>
+        <a href="https://github.com/brolag/neural-open-code">GitHub ↗</a>
+      </div>
+    </nav>
+  </header>
 
-    <header>
-        <nav>
-            <div class="logo">
-                <span class="logo-icon">🧠</span>
-                <span class="logo-text">Neural OpenCode</span>
-            </div>
-            <ul class="nav-links">
-                <li><a href="#features">Features</a></li>
-                <li><a href="#agents">Agents</a></li>
-                <li><a href="#installation">Install</a></li>
-                <li><a href="https://github.com/brolag/neural-open-code" class="btn-github">GitHub</a></li>
-            </ul>
-        </nav>
-    </header>
+  <main id="top">
+    <div class="hero wrap">
+      <p class="eyebrow">OpenCode 1.18.31 plugin · five focused skills</p>
+      <h1>Evidence before <span>confidence.</span></h1>
+      <p class="lede">Discover the unknowns. Lock the plan. Build against it. Review independently. Exercise what the user will actually touch.</p>
+      <div class="actions">
+        <a class="button primary" href="#install">Install Neural OpenCode</a>
+        <a class="button" href="https://github.com/brolag/neural-open-code/blob/main/docs/WORKFLOW.md">Read the workflow</a>
+      </div>
+    </div>
 
-    <main>
-        <section class="hero">
-            <div class="hero-content">
-                <div class="version-badge">v1.5.0</div>
-                <h1>Neural OpenCode <span class="gradient-text">Plugin</span></h1>
-                <p class="tagline">OpenCode that learns and improves from every interaction</p>
-                <p class="description">
-                    Every OpenCode session starts from zero. Neural OpenCode <strong>remembers</strong>.
-                    It learns patterns, accumulates knowledge, and gets smarter over time.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#installation" class="btn btn-primary">Get Started</a>
-                    <a href="https://github.com/brolag/neural-open-code" class="btn btn-secondary">View on GitHub</a>
-                </div>
-                <div class="hero-stats">
-                    <div class="stat">
-                        <span class="stat-number">10+</span>
-                        <span class="stat-label">Agents</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">20+</span>
-                        <span class="stat-label">Skills</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">30+</span>
-                        <span class="stat-label">Commands</span>
-                    </div>
-                    <div class="stat">
-                        <span class="stat-number">3</span>
-                        <span class="stat-label">AI Models</span>
-                    </div>
-                </div>
-            </div>
-            <div class="hero-visual">
-                <div class="code-block">
-                    <div class="code-header">
-                        <span class="dot red"></span>
-                        <span class="dot yellow"></span>
-                        <span class="dot green"></span>
-                        <span class="code-title">One Command Install</span>
-                    </div>
-                    <pre><code><span class="comment"># Install Neural OpenCode</span>
-<span class="keyword">curl</span> -fsSL https://raw.githubusercontent.com/
-  brolag/neural-open-code/
-  main/install.sh | <span class="keyword">bash</span>
-
-<span class="comment"># Then run the guided tour</span>
-<span class="keyword">/onboard</span>
-
-<span class="comment"># Traditional vs Neural</span>
-Traditional: Execute -> Forget -> <span class="string">Repeat</span>
-Neural:      Execute -> Learn  -> <span class="number">Improve</span></code></pre>
-                </div>
-            </div>
-        </section>
-
-        <section id="features" class="features">
-            <h2>Core Features</h2>
-            <div class="features-grid">
-                <div class="feature-card">
-                    <div class="feature-icon">🎯</div>
-                    <h3>Skills Manager</h3>
-                    <p>Install, enable, disable, and update skills on demand. Interactive installer with categories and dependency resolution.</p>
-                    <div class="feature-detail">
-                        <code>/install-skills</code> <code>/manage-skills</code>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🧠</div>
-                    <h3>Persistent Memory</h3>
-                    <p>Facts, patterns, and learnings that survive restarts. Hot, warm, and cold memory tiers with global and project-level persistence.</p>
-                    <div class="feature-detail">
-                        <code>/remember</code> <code>/recall</code> <code>/forget</code>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔍</div>
-                    <h3>Code Quality</h3>
-                    <p>Detect technical debt and auto-fix safe issues. Review PRs before merge with the overseer agent.</p>
-                    <div class="feature-detail">
-                        <code>/slop-scan</code> <code>/slop-fix</code> <code>/overseer</code>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🤖</div>
-                    <h3>Multi-AI Collaboration</h3>
-                    <p>Orchestrate Claude, Codex, and Gemini with intelligent routing based on task type and benchmarked strengths.</p>
-                    <div class="feature-detail">
-                        <code>/ai-collab</code> <code>/pv-mesh</code> <code>/plan-execute</code>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔊</div>
-                    <h3>TTS Control</h3>
-                    <p>Voice and text summaries with granular control. Toggle audio, text summary, or both independently.</p>
-                    <div class="feature-detail">
-                        <code>/tts on</code> <code>/tts audio off</code> <code>/tts summary off</code>
-                    </div>
-                </div>
-                <div class="feature-card">
-                    <div class="feature-icon">🔄</div>
-                    <h3>Neural Loops</h3>
-                    <p>Autonomous coding sessions that iterate until done. AFK mode, plan-first loops, and typed workflows.</p>
-                    <div class="feature-detail">
-                        <code>/loop "Fix all tests" --max 10</code>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section id="agents" class="agents">
-            <h2>Specialized Agents</h2>
-            <p class="section-description">Each agent maintains expertise that evolves through usage</p>
-            <div class="agents-grid">
-                <div class="agent-card">
-                    <div class="agent-header">
-                        <span class="agent-icon">🏗️</span>
-                        <h3>meta-agent</h3>
-                    </div>
-                    <p>Creates new agents dynamically based on patterns and requests</p>
-                </div>
-                <div class="agent-card">
-                    <div class="agent-header">
-                        <span class="agent-icon">🧠</span>
-                        <h3>cognitive-amplifier</h3>
-                    </div>
-                    <p>Enhanced thinking, bias detection, multi-perspective analysis</p>
-                </div>
-                <div class="agent-card">
-                    <div class="agent-header">
-                        <span class="agent-icon">💡</span>
-                        <h3>insight-synthesizer</h3>
-                    </div>
-                    <p>Cross-domain pattern discovery and breakthrough thinking</p>
-                </div>
-                <div class="agent-card">
-                    <div class="agent-header">
-                        <span class="agent-icon">🔍</span>
-                        <h3>overseer</h3>
-                    </div>
-                    <p>Review PRs and diffs for quality, security, and best practices</p>
-                </div>
-                <div class="agent-card highlight">
-                    <div class="agent-header">
-                        <span class="agent-icon">🤝</span>
-                        <h3>multi-ai</h3>
-                    </div>
-                    <p>Orchestrates Claude, Codex, and Gemini for complex problems</p>
-                    <div class="ai-badges">
-                        <span class="ai-badge claude">Claude 80.9%</span>
-                        <span class="ai-badge codex">Codex #1</span>
-                        <span class="ai-badge gemini">Gemini 1501</span>
-                    </div>
-                </div>
-                <div class="agent-card">
-                    <div class="agent-header">
-                        <span class="agent-icon">🚀</span>
-                        <h3>optimizer</h3>
-                    </div>
-                    <p>Performance tuning and system optimization specialist</p>
-                </div>
-            </div>
-        </section>
-
-        <section class="ai-comparison">
-            <h2>Multi-AI Intelligence</h2>
-            <div class="comparison-table">
-                <table>
-                    <thead>
-                        <tr>
-                            <th>AI Model</th>
-                            <th>Benchmark</th>
-                            <th>Best For</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td><span class="model-badge claude">Claude Opus 4.5</span></td>
-                            <td>80.9% SWE-bench</td>
-                            <td>Architecture, accuracy, code quality</td>
-                        </tr>
-                        <tr>
-                            <td><span class="model-badge codex">GPT-5.1-Codex-Max</span></td>
-                            <td>Terminal-Bench #1</td>
-                            <td>DevOps, CLI tasks, 7+ hour sessions</td>
-                        </tr>
-                        <tr>
-                            <td><span class="model-badge gemini">Gemini 3 Pro</span></td>
-                            <td>1501 Elo LMArena</td>
-                            <td>Algorithms, competitive coding</td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </section>
-
-        <section id="installation" class="installation">
-            <h2>Installation</h2>
-            <div class="install-steps">
-                <div class="step">
-                    <div class="step-number">1</div>
-                    <div class="step-content">
-                        <h3>One Command Install</h3>
-                        <div class="code-snippet">
-                            <code>curl -fsSL https://raw.githubusercontent.com/brolag/neural-open-code/main/install.sh | bash</code>
-                        </div>
-                        <p style="margin-top: 0.5rem; opacity: 0.7; font-size: 0.85rem;">Clones repo, configures shell, registers commands, sets up hooks, and offers skill installation.</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">2</div>
-                    <div class="step-content">
-                        <h3>Run the Guided Tour</h3>
-                        <div class="code-snippet">
-                            <code>/onboard</code>
-                        </div>
-                        <p style="margin-top: 0.5rem; opacity: 0.7; font-size: 0.85rem;">Interactive 7-step tour: system check, feature discovery, skills setup, TTS config, and command reference.</p>
-                    </div>
-                </div>
-                <div class="step">
-                    <div class="step-number">3</div>
-                    <div class="step-content">
-                        <h3>Start Building</h3>
-                        <div class="code-snippet">
-                            <code>/remember My API uses JWT tokens</code>
-                            <code>/loop "Fix all tests" --max 10</code>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="requirements">
-                <h3>Requirements</h3>
-                <div class="req-grid">
-                    <div class="req required">
-                        <span class="req-icon">&#10003;</span>
-                        <span>OpenCode CLI</span>
-                    </div>
-                    <div class="req required">
-                        <span class="req-icon">&#10003;</span>
-                        <span>Git</span>
-                    </div>
-                    <div class="req optional">
-                        <span class="req-icon">&#9675;</span>
-                        <span>jq (recommended)</span>
-                    </div>
-                    <div class="req optional">
-                        <span class="req-icon">&#9675;</span>
-                        <span>ElevenLabs API (TTS)</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <section class="commands">
-            <h2>Quick Commands</h2>
-            <div class="commands-grid">
-                <div class="command-card">
-                    <code>/onboard</code>
-                    <span>Interactive guided tour</span>
-                </div>
-                <div class="command-card">
-                    <code>/install-skills</code>
-                    <span>Add new skills</span>
-                </div>
-                <div class="command-card">
-                    <code>/manage-skills</code>
-                    <span>Enable/disable skills</span>
-                </div>
-                <div class="command-card">
-                    <code>/slop-scan</code>
-                    <span>Detect technical debt</span>
-                </div>
-                <div class="command-card">
-                    <code>/overseer</code>
-                    <span>Review PR quality</span>
-                </div>
-                <div class="command-card">
-                    <code>/loop "task"</code>
-                    <span>Autonomous coding</span>
-                </div>
-                <div class="command-card">
-                    <code>/remember &lt;fact&gt;</code>
-                    <span>Save to memory</span>
-                </div>
-                <div class="command-card">
-                    <code>/ai-collab &lt;problem&gt;</code>
-                    <span>Multi-AI consensus</span>
-                </div>
-            </div>
-        </section>
-
-        <section class="cta">
-            <h2>Ready to supercharge your development?</h2>
-            <p>One command. Persistent memory. Self-improving AI.</p>
-            <div class="cta-buttons">
-                <a href="https://github.com/brolag/neural-open-code" class="btn btn-primary btn-large">
-                    Get Started on GitHub
-                </a>
-            </div>
-        </section>
-    </main>
-
-    <footer>
-        <div class="footer-content">
-            <div class="footer-logo">
-                <span class="logo-icon">🧠</span>
-                <span>Neural OpenCode Plugin</span>
-            </div>
-            <p>Created by <a href="https://github.com/brolag">@brolag</a> &bull; MIT License &bull; v1.5.0</p>
-            <p class="footer-tagline">Self-improving AI development system</p>
+    <section id="workflow">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>One path. Five gates.</h2>
+          <p>Each skill has a distinct authority and stopping condition. Small work can enter later; material work keeps planning, building, review, and behavior separate.</p>
         </div>
-    </footer>
+        <div class="flow" aria-label="Neural OpenCode workflow">
+          <article class="gate"><small>01 · map</small><h3>/discover</h3><p>Find architectural unknowns and produce an evidence-backed map.</p></article>
+          <article class="gate"><small>02 · contract</small><h3>/spec</h3><p>Lock signatures, invariants, dependencies, and executable acceptance.</p></article>
+          <article class="gate"><small>03 · build</small><h3>/craft</h3><p>Capture a baseline, implement the approved plan, and measure the delta.</p></article>
+          <article class="gate"><small>04 · challenge</small><h3>/vet</h3><p>Review in fresh context and return an evidence-backed SHIP or HOLD.</p></article>
+          <article class="gate"><small>05 · use</small><h3>/exercise</h3><p>Run tests, drive real behavior, and return PASS or FAIL.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="hooks">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Guardrails with visible limits.</h2>
+          <p>Dependency-free Node hooks travel with the plugin. OpenCode does not trust them automatically: inspect <code>plugins/neural-open-code/hooks/</code> first.</p>
+        </div>
+        <div class="grid">
+          <article class="card"><span class="badge">tool.execute.before</span><h3>Dangerous actions</h3><p>Blocks high-confidence destructive shell commands and protected-branch force pushes.</p></article>
+          <article class="card"><span class="badge">tool.execute.before</span><h3>Sensitive files</h3><p>Stops write, edit, and apply_patch changes to common credential files.</p></article>
+          <article class="card"><span class="badge">tool.execute.after</span><h3>Output scanning</h3><p>Warns when tool output resembles secrets without echoing the detected value.</p></article>
+          <article class="card"><span class="badge">session.compacting</span><h3>Context recovery</h3><p>Preserves a small project note so work can recover after compaction.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section id="install">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Add two project keys. Nothing else.</h2>
+          <p>No copy script and no silent configuration mutation. Point OpenCode 1.18.31 at the plugin and skill path, restart, then review the hooks.</p>
+        </div>
+        <div class="terminal install-terminal" aria-label="Installation commands">
+          <div class="terminal-bar" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <pre><code><strong>$</strong> opencode --version
+<strong>#</strong> require 1.18.31 or later
+
+<strong>#</strong> in your project's opencode.json
+{
+  "plugin": ["./plugins/neural-open-code"],
+  "skills": { "paths": ["./plugins/neural-open-code/skills"] }
+}</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="structure">
+      <div class="wrap structure">
+        <div class="principle">
+          <blockquote>Five skills. One plugin. No shadow inventory.</blockquote>
+          <p>The 2.0 structure removes unsupported command bundles, courses, squads, loops, TTS, multi-AI mesh, and installers.</p>
+        </div>
+        <div class="terminal" aria-label="Plugin structure">
+          <div class="terminal-bar" aria-hidden="true"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+          <pre><code>opencode.example.json
+plugins/neural-open-code/
+├── package.json
+├── index.js
+├── skills/
+│   ├── discover/
+│   ├── spec/
+│   ├── craft/
+│   ├── vet/
+│   └── exercise/
+└── hooks/
+    └── *.js</code></pre>
+        </div>
+      </div>
+    </section>
+
+    <section id="configuration">
+      <div class="wrap">
+        <div class="section-head">
+          <h2>Model choice stays with OpenCode and you.</h2>
+          <p>Neural OpenCode never changes model, approvals, sandboxing, network access, MCP servers, or global configuration. Provider availability does not guarantee OpenCode availability.</p>
+        </div>
+        <div class="grid">
+          <article class="card"><h3>Available model first</h3><p>Use the OpenCode default or a model your client explicitly exposes. Apply structured prompting without hardcoding an unsupported ID.</p></article>
+          <article class="card"><h3>Permission stays separate</h3><p>A stronger model is not broader authority. Choose permission policy independently.</p></article>
+        </div>
+        <div class="actions"><a class="button" href="https://github.com/brolag/neural-open-code/blob/main/docs/CONFIGURATION.md">View configuration examples</a><a class="button" href="https://github.com/brolag/neural-open-code/blob/main/docs/VERIFICATION.md">Review the release gate</a></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap footer-row">
+      <span>Neural OpenCode · OpenCode 1.18.31 plugin workflow</span>
+      <span><a href="https://github.com/brolag/neural-open-code#readme">Docs</a> · <a href="https://github.com/brolag/neural-open-code">Source</a></span>
+    </div>
+  </footer>
+  <script>
+    (() => {
+      const canvas = document.getElementById('matrix-bg');
+      const context = canvas.getContext('2d');
+      const characters = 'アイウエオカキクケコサシスセソタチツテト0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+      const fontSize = 14;
+      const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let drops = [];
+      let animationFrame;
+
+      const resize = () => {
+        const scale = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.floor(window.innerWidth * scale);
+        canvas.height = Math.floor(window.innerHeight * scale);
+        canvas.style.width = `${window.innerWidth}px`;
+        canvas.style.height = `${window.innerHeight}px`;
+        context.setTransform(scale, 0, 0, scale, 0, 0);
+        drops = Array(Math.ceil(window.innerWidth / fontSize)).fill(1);
+      };
+
+      const drawStaticMatrix = () => {
+        context.clearRect(0, 0, window.innerWidth, window.innerHeight);
+        context.font = `${fontSize}px monospace`;
+        for (let column = 0; column < drops.length; column += 1) {
+          const head = Math.floor(Math.random() * (window.innerHeight / fontSize));
+          const trail = 12 + Math.floor(Math.random() * 18);
+          for (let offset = 0; offset < trail; offset += 1) {
+            const row = (head - offset + Math.ceil(window.innerHeight / fontSize)) % Math.ceil(window.innerHeight / fontSize);
+            context.fillStyle = `rgba(209, 213, 219, ${Math.max(.08, 1 - offset / trail)})`;
+            context.fillText(characters[Math.floor(Math.random() * characters.length)], column * fontSize, row * fontSize);
+          }
+        }
+      };
+
+      let lastDraw = 0;
+      const draw = (time) => {
+        animationFrame = requestAnimationFrame(draw);
+        if (time - lastDraw < 55) return;
+        lastDraw = time;
+        context.fillStyle = 'rgba(10, 10, 10, .08)';
+        context.fillRect(0, 0, window.innerWidth, window.innerHeight);
+        context.fillStyle = '#d1d5db';
+        context.font = `${fontSize}px monospace`;
+
+        drops.forEach((drop, index) => {
+          const character = characters[Math.floor(Math.random() * characters.length)];
+          const y = drop * fontSize;
+          context.fillText(character, index * fontSize, y);
+          if (y > window.innerHeight && Math.random() > .975) drops[index] = 0;
+          drops[index] += 1;
+        });
+      };
+
+      resize();
+      if (reducedMotion) drawStaticMatrix();
+      else animationFrame = requestAnimationFrame(draw);
+      window.addEventListener('resize', () => {
+        resize();
+        if (reducedMotion) drawStaticMatrix();
+      }, { passive: true });
+      document.addEventListener('visibilitychange', () => {
+        if (reducedMotion) return;
+        if (document.hidden) cancelAnimationFrame(animationFrame);
+        else animationFrame = requestAnimationFrame(draw);
+      });
+    })();
+  </script>
 </body>
 </html>

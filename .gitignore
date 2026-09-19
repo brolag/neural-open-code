@@ -1,0 +1,6 @@
+plans/
+.opencode/compact-context.md
+node_modules/
+__pycache__/
+.pytest_cache/
+.DS_Store

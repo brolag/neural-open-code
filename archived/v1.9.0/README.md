@@ -1,0 +1,175 @@
+# Neural OpenCode
+
+<p align="center">
+  <img src="https://img.shields.io/badge/OpenCode-Plugin-6366f1?style=for-the-badge" alt="OpenCode Plugin">
+  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="MIT License">
+  <img src="https://img.shields.io/badge/Version-1.9.0-ec4899?style=for-the-badge" alt="Version">
+</p>
+
+<p align="center">
+  <strong>OpenCode that learns and improves from every interaction.</strong>
+</p>
+
+<p align="center">
+  <code>curl -fsSL https://raw.githubusercontent.com/brolag/neural-open-code/main/install.sh | bash</code>
+</p>
+
+---
+
+## The Problem
+
+Every OpenCode session starts from zero. You explain your project structure, conventions, and preferences... again and again.
+
+## The Solution
+
+Neural OpenCode remembers. It learns patterns, accumulates knowledge, and gets smarter over time.
+
+```
+Traditional: Execute -> Forget -> Repeat forever
+Neural:      Execute -> Learn  -> Improve always
+```
+
+---
+
+## Quick Start
+
+**One command to install:**
+
+```bash
+curl -fsSL https://raw.githubusercontent.com/brolag/neural-open-code/main/install.sh | bash
+```
+
+The installer will:
+- Clone the repository
+- Configure your shell
+- Register all commands
+- Set up hooks
+- Offer to install recommended skills
+
+**Then run the guided tour:**
+
+```bash
+/onboard
+```
+
+<details>
+<summary>Manual installation</summary>
+
+```bash
+# 1. Clone
+git clone https://github.com/brolag/neural-open-code ~/Sites/neural-open-code
+
+# 2. Setup
+cd ~/Sites/neural-open-code && ./scripts/setup-hooks.sh
+
+# 3. Add to shell
+echo 'export OPENCODE_PLUGIN_ROOT="$HOME/Sites/neural-open-code"' >> ~/.zshrc
+source ~/.zshrc
+
+# 4. Guided tour
+/onboard
+```
+
+</details>
+
+**[Full Installation Guide ->](docs/tutorials/01-installation.md)**
+
+---
+
+## Key Features
+
+| Feature | What it does | Command |
+|---------|--------------|---------|
+| **Agentic Course** | Interactive 13-lesson course for mastering agentic coding | `/course` |
+| **Neural Squad** | Multi-agent orchestration with anti-slop enforcement | `/squad-init`, `/squad-status` |
+| **CRAFT Framework** | Structured prompts for autonomous agents | `/craft` |
+| **KPI Tracking** | Measure Plan/Review Velocity, Autonomy, Loop State | `/kpi` |
+| **Compute Advantage** | Calculate your agentic leverage ratio | `/ca` |
+| **Cost Tracking** | Real-time API cost monitoring | `/cost` |
+| **Skills Manager** | Install, enable/disable skills on demand | `/install-skills`, `/manage-skills` |
+| **Self-Learning** | Expertise files that grow smarter each session | `/remember`, `/recall` |
+| **Persistent Memory** | Facts and patterns that survive restarts | `/remember`, `/forget` |
+| **Code Quality** | Detect and auto-fix technical debt | `/slop-scan`, `/slop-fix`, `/overseer` |
+| **Neural Loops** | Autonomous coding sessions that iterate until done | `/loop` |
+| **Multi-AI** | Route tasks to Claude, Codex, or Gemini | `/pv-mesh`, `/ai-collab` |
+
+---
+
+## Quick Commands
+
+```bash
+# First time? Start here
+/onboard                     # Guided tour
+/course                      # 13-lesson agentic coding course
+
+# Install and manage skills
+/install-skills              # Add new skills
+/manage-skills               # Enable/disable/update
+/tts off                     # Toggle voice/summaries
+
+# Memory
+/remember The API uses JWT tokens
+/recall database
+
+# Development
+/debug                       # Root cause analysis
+/tdd                         # Test-driven development
+/slop-scan                   # Find technical debt
+/overseer                    # Review PR quality
+
+# Autonomous work
+/loop "Fix all tests" --max 10
+/loop "Build feature" --craft   # With CRAFT prompt
+
+# Multi-agent squad
+/squad-init                      # Initialize 3-agent system
+/squad-status                    # Check agents and tasks
+/squad-task create "Feature"     # Create task for squad
+/squad-standup                   # Daily standup report
+
+# Agentic metrics
+/kpi                             # Performance dashboard
+/ca                              # Compute Advantage score
+/cost                            # API cost tracking
+/craft "Build auth system"       # Generate structured prompt
+
+# Learning
+/learn https://github.com/user/repo
+```
+
+**[All Commands ->](docs/reference/commands.md)**
+
+---
+
+## Learn More
+
+| New here? | Know what you want? |
+|-----------|---------------------|
+| **[Tutorials](docs/tutorials/)** | **[How-to Guides](docs/how-to/)** |
+| Step-by-step learning | Task-focused recipes |
+
+| Need to look something up? | Want to understand? |
+|---------------------------|---------------------|
+| **[Reference](docs/reference/)** | **[Explanation](docs/explanation/)** |
+| Commands, agents, config | Architecture, patterns |
+
+**[Full Documentation ->](docs/index.md)**
+
+---
+
+## Contributing
+
+Contributions welcome! [Open an issue](https://github.com/brolag/neural-open-code/issues) or submit a PR.
+
+---
+
+## License
+
+MIT - see [LICENSE](LICENSE)
+
+---
+
+<p align="center">
+  <strong>Built with OpenCode</strong><br>
+  <sub>Self-improving AI that learns from you</sub>
+</p>
